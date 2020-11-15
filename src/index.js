@@ -2,16 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-import { Button } from 'antd';
+import { DatePicker, Space } from 'antd';
+
+const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <>
-    <Button type="primary">Primary Button</Button>
-    <Button>Default Button</Button>
-    <Button type="dashed">Dashed Button</Button>
-    <br />
-    <Button type="text">Text Button</Button>
-    <Button type="link">Link Button</Button>
-  </>,
+  <Space direction="vertical" size={12}>
+    <RangePicker />
+    <RangePicker showTime />
+    <RangePicker picker="week" />
+    <RangePicker picker="month" />
+    <RangePicker picker="year" />
+  </Space>,
   document.getElementById('container'),
 );
