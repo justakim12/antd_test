@@ -13,6 +13,7 @@ import {
   UploadOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
+import { Pagination } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -60,6 +61,7 @@ ReactDOM.render(
         <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
           ...
           <br />
+          <Pagination defaultCurrent={1} total={50} />  
         </div>
       </Content>
     </Layout>
