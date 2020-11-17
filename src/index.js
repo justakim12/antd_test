@@ -9,8 +9,8 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { DatePicker, Space } from 'antd';
-import { Pagination } from 'antd';
 import { Table, Tag } from 'antd';
+import { Image } from 'antd';
 
 const columns = [
   {
@@ -84,6 +84,16 @@ const data = [
     tags: ['cool', 'teacher'],
   },
 ];
+
+function ImageDemo() {
+  return (
+    <Image
+      width={200}
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    />
+  );
+}
+
 const { Header, Content, Footer, Sider } = Layout;
 const { RangePicker } = DatePicker;
 
@@ -115,7 +125,8 @@ ReactDOM.render(
       <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
         <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
         <Space direction="vertical" size={12}>
-          <RangePicker />
+        <ImageDemo />
+        <RangePicker />
         <br/>
         <br/>
         <br/>
