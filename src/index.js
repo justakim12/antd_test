@@ -9,9 +9,41 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { DatePicker, Space } from 'antd';
-import { Table, Tag } from 'antd';
 import { Image } from 'antd';
+import { Upload, message, Button } from 'antd';
+import { Table, Tag } from 'antd';
 
+
+const { RangePicker } = DatePicker;
+
+const props = {
+  name: 'file',
+  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+  headers: {
+    authorization: 'authorization-text',
+  },
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
+
+function ImageDemo() {
+  return (
+    <Image
+      width={200}
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    />
+  );
+}
+
+const { Header, Content, Footer, Sider } = Layout;
 const columns = [
   {
     title: 'Name',
@@ -85,18 +117,6 @@ const data = [
   },
 ];
 
-function ImageDemo() {
-  return (
-    <Image
-      width={200}
-      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-    />
-  );
-}
-
-const { Header, Content, Footer, Sider } = Layout;
-const { RangePicker } = DatePicker;
-
 ReactDOM.render(
   <Layout>
     <Sider
@@ -127,6 +147,9 @@ ReactDOM.render(
         <Space direction="vertical" size={12}>
         <ImageDemo />
         <RangePicker />
+        <Upload {...props}>
+          <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        </Upload>
         <br/>
         <br/>
         <br/>
